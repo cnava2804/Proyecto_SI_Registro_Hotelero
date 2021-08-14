@@ -1,0 +1,57 @@
+﻿@model Proyecto_SI_Registro_Hotelero.Models.PagoReserva
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PagoReserva</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PReservaTitular" class="control-label"></label>
+                <input asp-for="PReservaTitular" class="form-control" />
+                <span asp-validation-for="PReservaTitular" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PReservaCedula" class="control-label"></label>
+                <input asp-for="PReservaCedula" class="form-control" />
+                <span asp-validation-for="PReservaCedula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PReservaNumeroTarjeta" class="control-label"></label>
+                <input asp-for="PReservaNumeroTarjeta" class="form-control" />
+                <span asp-validation-for="PReservaNumeroTarjeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PReservaFechaVencimiento" class="control-label"></label>
+                <input asp-for="PReservaFechaVencimiento" class="form-control" />
+                <span asp-validation-for="PReservaFechaVencimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PReservaCodigoTarjeta" class="control-label"></label>
+                <input asp-for="PReservaCodigoTarjeta" class="form-control" />
+                <span asp-validation-for="PReservaCodigoTarjeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReservaHId" class="control-label"></label>
+                <select asp-for="ReservaHId" class ="form-control" asp-items="ViewBag.ReservaHId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
