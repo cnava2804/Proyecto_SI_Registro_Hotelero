@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proyecto_SI_Registro_Hotelero.Data;
 
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
     [DbContext(typeof(PRHoteleroDbContext))]
-    partial class PRHoteleroDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210814081153_Tablaass")]
+    partial class Tablaass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
