@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_SI_Registro_Hotelero.Areas.Identity.Data;
+using Proyecto_SI_Registro_Hotelero.Models;
 
 namespace Proyecto_SI_Registro_Hotelero.Data
 {
@@ -15,6 +16,13 @@ namespace Proyecto_SI_Registro_Hotelero.Data
             : base(options)
         {
         }
+
+        public DbSet<Habitacion> Habitaciones { get; set; }
+        public DbSet<TipoHabitacion> TipoHabitaciones { get; set; }
+        public DbSet<PisoHabitacion> PisoHabitaciones { get; set; }
+        public DbSet<EstadoHabitacion> EstadoHabitaciones { get; set; }
+        public DbSet<ReservaHabitacion> ReservaHabitaciones { get; set; }
+        public DbSet<PagoReserva> PagoReservas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

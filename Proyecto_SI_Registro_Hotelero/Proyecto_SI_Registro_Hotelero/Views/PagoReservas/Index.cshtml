@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Proyecto_SI_Registro_Hotelero.Models.PagoReserva>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PReservaTitular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PReservaCedula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PReservaNumeroTarjeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PReservaFechaVencimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PReservaCodigoTarjeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservaHabitacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PReservaTitular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PReservaCedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PReservaNumeroTarjeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PReservaFechaVencimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PReservaCodigoTarjeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservaHabitacion.ReservaHId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PReservaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PReservaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PReservaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
