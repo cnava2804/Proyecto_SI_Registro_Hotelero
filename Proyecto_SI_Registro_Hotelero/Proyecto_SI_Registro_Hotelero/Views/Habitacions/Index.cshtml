@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-file"></i> Nueva Habitación</a>
 </p>
 <table class="table">
     <thead>
@@ -22,13 +22,13 @@
                 @Html.DisplayNameFor(model => model.HabitacionPrecio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TipoHabitacion)
+                @Html.DisplayNameFor(model => model.TipoHabitacion.TipoDescripcion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PisoHabitacion)
+                @Html.DisplayNameFor(model => model.PisoHabitacion.Piso)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EstadoHabitacion)
+                @Html.DisplayNameFor(model => model.EstadoHabitacion.Estado)
             </th>
             <th></th>
         </tr>
@@ -46,18 +46,18 @@
                 @Html.DisplayFor(modelItem => item.HabitacionPrecio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TipoHabitacion.TipoHId)
+                @Html.DisplayFor(modelItem => item.TipoHabitacion.TipoDescripcion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PisoHabitacion.PisoHId)
+                @Html.DisplayFor(modelItem => item.PisoHabitacion.Piso)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EstadoHabitacion.EstadoHId)
+                @Html.DisplayFor(modelItem => item.EstadoHabitacion.Estado)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.HabitacionId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.HabitacionId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.HabitacionId">Delete</a>
+                <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@item.HabitacionId">Editar</a>
+                <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.HabitacionId">Detalles</a>
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.HabitacionId">Borrar</a>
             </td>
         </tr>
 }
