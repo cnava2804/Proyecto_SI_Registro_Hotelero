@@ -10,8 +10,8 @@ using Proyecto_SI_Registro_Hotelero.Data;
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
     [DbContext(typeof(PRHoteleroDbContext))]
-    [Migration("20210812062810_Initial-Create")]
-    partial class InitialCreate
+    [Migration("20210815065551_Agregado de botones")]
+    partial class Agregadodebotones
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -227,6 +227,148 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.EstadoHabitacion", b =>
+                {
+                    b.Property<int>("EstadoHId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EstadoHId");
+
+                    b.ToTable("EstadoHabitaciones");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.Habitacion", b =>
+                {
+                    b.Property<int>("HabitacionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("EstadoHId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HabitacionDescripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HabitacionNumero")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("HabitacionPrecio")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("PisoHId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoHId")
+                        .HasColumnType("int");
+
+                    b.HasKey("HabitacionId");
+
+                    b.HasIndex("EstadoHId");
+
+                    b.HasIndex("PisoHId");
+
+                    b.HasIndex("TipoHId");
+
+                    b.ToTable("Habitaciones");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.PagoReserva", b =>
+                {
+                    b.Property<int>("PReservaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("PReservaCedula")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PReservaCodigoTarjeta")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PReservaFechaVencimiento")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PReservaNumeroTarjeta")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PReservaTitular")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ReservaHId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PReservaId");
+
+                    b.HasIndex("ReservaHId");
+
+                    b.ToTable("PagoReservas");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.PisoHabitacion", b =>
+                {
+                    b.Property<int>("PisoHId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Piso")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PisoHId");
+
+                    b.ToTable("PisoHabitaciones");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.ReservaHabitacion", b =>
+                {
+                    b.Property<int>("ReservaHId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("FechaIngreso")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechasSalida")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("HabitacionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReservaApellido")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReservaNombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ReservaHId");
+
+                    b.HasIndex("HabitacionId");
+
+                    b.ToTable("ReservaHabitaciones");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.TipoHabitacion", b =>
+                {
+                    b.Property<int>("TipoHId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("TipoDescripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TipoHId");
+
+                    b.ToTable("TipoHabitaciones");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -276,6 +418,80 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.Habitacion", b =>
+                {
+                    b.HasOne("Proyecto_SI_Registro_Hotelero.Models.EstadoHabitacion", "EstadoHabitacion")
+                        .WithMany("Habitaciones")
+                        .HasForeignKey("EstadoHId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Proyecto_SI_Registro_Hotelero.Models.PisoHabitacion", "PisoHabitacion")
+                        .WithMany("Habitaciones")
+                        .HasForeignKey("PisoHId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Proyecto_SI_Registro_Hotelero.Models.TipoHabitacion", "TipoHabitacion")
+                        .WithMany("Habitaciones")
+                        .HasForeignKey("TipoHId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EstadoHabitacion");
+
+                    b.Navigation("PisoHabitacion");
+
+                    b.Navigation("TipoHabitacion");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.PagoReserva", b =>
+                {
+                    b.HasOne("Proyecto_SI_Registro_Hotelero.Models.ReservaHabitacion", "ReservaHabitacion")
+                        .WithMany("PagoReservas")
+                        .HasForeignKey("ReservaHId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ReservaHabitacion");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.ReservaHabitacion", b =>
+                {
+                    b.HasOne("Proyecto_SI_Registro_Hotelero.Models.Habitacion", "Habitacion")
+                        .WithMany("Reservahabitaciones")
+                        .HasForeignKey("HabitacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Habitacion");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.EstadoHabitacion", b =>
+                {
+                    b.Navigation("Habitaciones");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.Habitacion", b =>
+                {
+                    b.Navigation("Reservahabitaciones");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.PisoHabitacion", b =>
+                {
+                    b.Navigation("Habitaciones");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.ReservaHabitacion", b =>
+                {
+                    b.Navigation("PagoReservas");
+                });
+
+            modelBuilder.Entity("Proyecto_SI_Registro_Hotelero.Models.TipoHabitacion", b =>
+                {
+                    b.Navigation("Habitaciones");
                 });
 #pragma warning restore 612, 618
         }

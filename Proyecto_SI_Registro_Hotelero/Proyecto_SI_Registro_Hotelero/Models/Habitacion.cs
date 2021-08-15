@@ -11,17 +11,39 @@ namespace Proyecto_SI_Registro_Hotelero.Models
     {
         [Key]
         public int HabitacionId { get; set; }
+
+        [Display(Name = "Número de Habitación")]
         public string HabitacionNumero { get; set; }
+
+
+        [Display(Name = "Descripción")]
         public string HabitacionDescripcion { get; set; }
-        public int HabitacionPrecio { get; set; }
+
+
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C0}")]
+        [Column(TypeName = "decimal(18,2)")]
+        [Display(Name = "Precio")]
+        public decimal HabitacionPrecio { get; set; }
+
+
         public int TipoHId { get; set; }
         [ForeignKey("TipoHId")]
+
+        [Display(Name = "Tipo de Habitación")]
         public TipoHabitacion TipoHabitacion { get; set; }
+       
         public int PisoHId { get; set; }
         [ForeignKey("PisoHId")]
+
+        [Display(Name = "Piso")]
         public PisoHabitacion PisoHabitacion { get; set; }
+
+       
         public int EstadoHId { get; set; }
         [ForeignKey("EstadoHId")]
+
+        [Display(Name = "Estado")]
         public EstadoHabitacion EstadoHabitacion { get; set; }
         public IEnumerable<ReservaHabitacion> Reservahabitaciones { get; set; }
     }

@@ -10,6 +10,8 @@ namespace Proyecto_SI_Registro_Hotelero.Models
     {
         [Key]
         public int EstadoHId { get; set; }
+
+        [Display(Name = "Estado")]
         public string Estado { get; set; }
 
         public IEnumerable<Habitacion> Habitaciones { get; set; }
