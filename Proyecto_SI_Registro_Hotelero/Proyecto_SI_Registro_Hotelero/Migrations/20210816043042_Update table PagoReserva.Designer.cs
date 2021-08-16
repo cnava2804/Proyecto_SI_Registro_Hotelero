@@ -10,8 +10,8 @@ using Proyecto_SI_Registro_Hotelero.Data;
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
     [DbContext(typeof(PRHoteleroDbContext))]
-    [Migration("20210814233935_Initial_Creation")]
-    partial class Initial_Creation
+    [Migration("20210816043042_Update table PagoReserva")]
+    partial class UpdatetablePagoReserva
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -258,8 +258,8 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                     b.Property<string>("HabitacionNumero")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("HabitacionPrecio")
-                        .HasColumnType("int");
+                    b.Property<decimal>("HabitacionPrecio")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("PisoHId")
                         .HasColumnType("int");
@@ -285,17 +285,23 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("PReservaCedula")
-                        .HasColumnType("int");
+                    b.Property<string>("PReservaCedula")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PReservaCodigoTarjeta")
-                        .HasColumnType("int");
+                    b.Property<string>("PReservaCodigoTarjeta")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("PReservaFechaVencimiento")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("PReservaCorreo")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PReservaNumeroTarjeta")
-                        .HasColumnType("int");
+                    b.Property<string>("PReservaFechaVencimiento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PReservaFullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PReservaNumeroTarjeta")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PReservaTitular")
                         .HasColumnType("nvarchar(max)");
@@ -331,9 +337,6 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ClienteId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("FechaIngreso")
                         .HasColumnType("datetime2");

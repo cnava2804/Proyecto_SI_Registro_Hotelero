@@ -12,20 +12,26 @@ namespace Proyecto_SI_Registro_Hotelero.Models
         [Key]
         public int PReservaId { get; set; }
 
-        [Display(Name = "Nombre")]
+        [Display(Name = "Nombre Completo")]
+        public string PReservaFullName { get; set; }
+
+        [Display(Name = "Email")]
+        public string PReservaCorreo { get; set; }
+
+        [Display(Name = "Nombre de la Targeta")]
         public string PReservaTitular { get; set; }
 
         [Display(Name = "Número de Cédula")]
         public string PReservaCedula { get; set; }
 
-        [Display(Name = "Número de Tarjeta")]
+        [Display(Name = "Número de la Tarjeta")]
         public string PReservaNumeroTarjeta { get; set; }
 
         [Display(Name = "Fecha Vecimiento")]
-        public int PReservaFechaVencimiento { get; set; }
+        public string PReservaFechaVencimiento { get; set; }
 
         [Display(Name = "Código Tarjeta")]
-        public int PReservaCodigoTarjeta { get; set; }
+        public string PReservaCodigoTarjeta { get; set; }
 
         public int ReservaHId { get; set; }
         [ForeignKey("ReservaHId")]
