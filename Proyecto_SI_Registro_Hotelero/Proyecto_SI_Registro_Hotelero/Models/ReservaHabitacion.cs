@@ -11,12 +11,20 @@ namespace Proyecto_SI_Registro_Hotelero.Models
     {
         [Key]
         public int ReservaHId { get; set; }
-        
+
+        [Display(Name = "Nombre del Huésped")]
         public string ReservaNombre { get; set; }
+
+        [Display(Name = "Apellido del Huésped")]
         public string ReservaApellido { get; set; }
+
+        [Display(Name = "Fecha de Ingreso")]
         public DateTime FechaIngreso { get; set; }
+
+        [Display(Name = "Fecha de Salida")]
         public DateTime FechasSalida { get; set; }
-        public int ClienteId { get; set; }
+
+        [Display(Name = "Número de Habitación")]
         public int HabitacionId { get; set; }
         [ForeignKey("HabitacionId")]
         public Habitacion Habitacion { get; set; }

@@ -39,7 +39,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
                 .FirstOrDefaultAsync(m => m.ReservaHId == id);
             if (reservaHabitacion == null)
             {
-                return NotFound();
+                return NotFound(); 
             }
 
             return View(reservaHabitacion);
@@ -48,7 +48,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
         // GET: ReservaHabitacions/Create
         public IActionResult Create()
         {
-            ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "HabitacionId", "HabitacionId");
+            ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "HabitacionId", "HabitacionNumero");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "HabitacionId", "HabitacionId", reservaHabitacion.HabitacionId);
+            ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "HabitacionId", "HabitacionNumero", reservaHabitacion.HabitacionId);
             return View(reservaHabitacion);
         }
 
@@ -82,7 +82,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
             {
                 return NotFound();
             }
-            ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "HabitacionId", "HabitacionId", reservaHabitacion.HabitacionId);
+            ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "HabitacionId", "HabitacionNumero", reservaHabitacion.HabitacionId);
             return View(reservaHabitacion);
         }
 
@@ -118,7 +118,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "HabitacionId", "HabitacionId", reservaHabitacion.HabitacionId);
+            ViewData["HabitacionId"] = new SelectList(_context.Habitaciones, "HabitacionId", "HabitacionNumero", reservaHabitacion.HabitacionId);
             return View(reservaHabitacion);
         }
 
