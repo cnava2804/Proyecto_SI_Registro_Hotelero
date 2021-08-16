@@ -50,9 +50,9 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
         // GET: Habitacions/Create
         public IActionResult Create()
         {
-            ViewData["EstadoHId"] = new SelectList(_context.EstadoHabitaciones, "EstadoHId", "EstadoHId");
-            ViewData["PisoHId"] = new SelectList(_context.PisoHabitaciones, "PisoHId", "PisoHId");
-            ViewData["TipoHId"] = new SelectList(_context.TipoHabitaciones, "TipoHId", "TipoHId");
+            ViewData["EstadoHId"] = new SelectList(_context.EstadoHabitaciones, "EstadoHId", "Estado");
+            ViewData["PisoHId"] = new SelectList(_context.PisoHabitaciones, "PisoHId", "Piso");
+            ViewData["TipoHId"] = new SelectList(_context.TipoHabitaciones, "TipoHId", "TipoDescripcion");
             return View();
         }
 
@@ -69,9 +69,9 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EstadoHId"] = new SelectList(_context.EstadoHabitaciones, "EstadoHId", "EstadoHId", habitacion.EstadoHId);
-            ViewData["PisoHId"] = new SelectList(_context.PisoHabitaciones, "PisoHId", "PisoHId", habitacion.PisoHId);
-            ViewData["TipoHId"] = new SelectList(_context.TipoHabitaciones, "TipoHId", "TipoHId", habitacion.TipoHId);
+            ViewData["EstadoHId"] = new SelectList(_context.EstadoHabitaciones, "EstadoHId", "Estado", habitacion.EstadoHId);
+            ViewData["PisoHId"] = new SelectList(_context.PisoHabitaciones, "PisoHId", "Piso", habitacion.PisoHId);
+            ViewData["TipoHId"] = new SelectList(_context.TipoHabitaciones, "TipoHId", "TipoDescripcion", habitacion.TipoHId);
             return View(habitacion);
         }
 
@@ -88,9 +88,9 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
             {
                 return NotFound();
             }
-            ViewData["EstadoHId"] = new SelectList(_context.EstadoHabitaciones, "EstadoHId", "EstadoHId", habitacion.EstadoHId);
-            ViewData["PisoHId"] = new SelectList(_context.PisoHabitaciones, "PisoHId", "PisoHId", habitacion.PisoHId);
-            ViewData["TipoHId"] = new SelectList(_context.TipoHabitaciones, "TipoHId", "TipoHId", habitacion.TipoHId);
+            ViewData["EstadoHId"] = new SelectList(_context.EstadoHabitaciones, "EstadoHId", "Estado", habitacion.EstadoHId);
+            ViewData["PisoHId"] = new SelectList(_context.PisoHabitaciones, "PisoHId", "Piso", habitacion.PisoHId);
+            ViewData["TipoHId"] = new SelectList(_context.TipoHabitaciones, "TipoHId", "TipoDescripcion", habitacion.TipoHId);
             return View(habitacion);
         }
 
@@ -126,9 +126,9 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EstadoHId"] = new SelectList(_context.EstadoHabitaciones, "EstadoHId", "EstadoHId", habitacion.EstadoHId);
-            ViewData["PisoHId"] = new SelectList(_context.PisoHabitaciones, "PisoHId", "PisoHId", habitacion.PisoHId);
-            ViewData["TipoHId"] = new SelectList(_context.TipoHabitaciones, "TipoHId", "TipoHId", habitacion.TipoHId);
+            ViewData["EstadoHId"] = new SelectList(_context.EstadoHabitaciones, "EstadoHId", "Estado", habitacion.EstadoHId);
+            ViewData["PisoHId"] = new SelectList(_context.PisoHabitaciones, "PisoHId", "Piso", habitacion.PisoHId);
+            ViewData["TipoHId"] = new SelectList(_context.TipoHabitaciones, "TipoHId", "TipoDescripcion", habitacion.TipoHId);
             return View(habitacion);
         }
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class UpdatetablePagoReserva : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,45 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EstadoHabitaciones",
+                columns: table => new
+                {
+                    EstadoHId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EstadoHabitaciones", x => x.EstadoHId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PisoHabitaciones",
+                columns: table => new
+                {
+                    PisoHId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Piso = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PisoHabitaciones", x => x.PisoHId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TipoHabitaciones",
+                columns: table => new
+                {
+                    TipoHId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TipoDescripcion = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoHabitaciones", x => x.TipoHId);
                 });
 
             migrationBuilder.CreateTable(
@@ -154,6 +193,91 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Habitaciones",
+                columns: table => new
+                {
+                    HabitacionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    HabitacionNumero = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HabitacionDescripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HabitacionPrecio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TipoHId = table.Column<int>(type: "int", nullable: false),
+                    PisoHId = table.Column<int>(type: "int", nullable: false),
+                    EstadoHId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Habitaciones", x => x.HabitacionId);
+                    table.ForeignKey(
+                        name: "FK_Habitaciones_EstadoHabitaciones_EstadoHId",
+                        column: x => x.EstadoHId,
+                        principalTable: "EstadoHabitaciones",
+                        principalColumn: "EstadoHId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Habitaciones_PisoHabitaciones_PisoHId",
+                        column: x => x.PisoHId,
+                        principalTable: "PisoHabitaciones",
+                        principalColumn: "PisoHId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Habitaciones_TipoHabitaciones_TipoHId",
+                        column: x => x.TipoHId,
+                        principalTable: "TipoHabitaciones",
+                        principalColumn: "TipoHId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ReservaHabitaciones",
+                columns: table => new
+                {
+                    ReservaHId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ReservaNombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ReservaApellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaIngreso = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechasSalida = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    HabitacionId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReservaHabitaciones", x => x.ReservaHId);
+                    table.ForeignKey(
+                        name: "FK_ReservaHabitaciones_Habitaciones_HabitacionId",
+                        column: x => x.HabitacionId,
+                        principalTable: "Habitaciones",
+                        principalColumn: "HabitacionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PagoReservas",
+                columns: table => new
+                {
+                    PReservaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PReservaFullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PReservaCorreo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PReservaTitular = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PReservaCedula = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PReservaNumeroTarjeta = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PReservaFechaVencimiento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PReservaCodigoTarjeta = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ReservaHId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PagoReservas", x => x.PReservaId);
+                    table.ForeignKey(
+                        name: "FK_PagoReservas_ReservaHabitaciones_ReservaHId",
+                        column: x => x.ReservaHId,
+                        principalTable: "ReservaHabitaciones",
+                        principalColumn: "ReservaHId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -192,6 +316,31 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Habitaciones_EstadoHId",
+                table: "Habitaciones",
+                column: "EstadoHId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Habitaciones_PisoHId",
+                table: "Habitaciones",
+                column: "PisoHId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Habitaciones_TipoHId",
+                table: "Habitaciones",
+                column: "TipoHId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PagoReservas_ReservaHId",
+                table: "PagoReservas",
+                column: "ReservaHId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReservaHabitaciones_HabitacionId",
+                table: "ReservaHabitaciones",
+                column: "HabitacionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -212,10 +361,28 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "PagoReservas");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "ReservaHabitaciones");
+
+            migrationBuilder.DropTable(
+                name: "Habitaciones");
+
+            migrationBuilder.DropTable(
+                name: "EstadoHabitaciones");
+
+            migrationBuilder.DropTable(
+                name: "PisoHabitaciones");
+
+            migrationBuilder.DropTable(
+                name: "TipoHabitaciones");
         }
     }
 }

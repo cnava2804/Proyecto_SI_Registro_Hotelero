@@ -10,6 +10,8 @@ namespace Proyecto_SI_Registro_Hotelero.Models
     {
         [Key]
         public int TipoHId { get; set; }
+
+        [Display (Name = "Tipo de Habitación")]
         public string TipoDescripcion { get; set; }
         public IEnumerable<Habitacion> Habitaciones { get; set; }
 
