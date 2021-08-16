@@ -286,11 +286,17 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                     b.Property<string>("PReservaCedula")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PReservaCodigoTarjeta")
-                        .HasColumnType("int");
+                    b.Property<string>("PReservaCodigoTarjeta")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PReservaFechaVencimiento")
-                        .HasColumnType("int");
+                    b.Property<string>("PReservaCorreo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PReservaFechaVencimiento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PReservaFullName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PReservaNumeroTarjeta")
                         .HasColumnType("nvarchar(max)");

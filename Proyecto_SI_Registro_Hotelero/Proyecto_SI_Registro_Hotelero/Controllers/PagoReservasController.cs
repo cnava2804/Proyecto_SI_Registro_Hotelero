@@ -35,7 +35,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
             }
 
             var pagoReserva = await _context.PagoReservas
-                .Include(p => p.ReservaHabitacion)
+                .Include(p => p.ReservaHId)
                 .FirstOrDefaultAsync(m => m.PReservaId == id);
             if (pagoReserva == null)
             {
@@ -57,7 +57,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PReservaId,PReservaTitular,PReservaCedula,PReservaNumeroTarjeta,PReservaFechaVencimiento,PReservaCodigoTarjeta,ReservaHId")] PagoReserva pagoReserva)
+        public async Task<IActionResult> Create([Bind("PReservaId,PReservaFullName,PReservaCorreo,PReservaTitular,PReservaCedula,PReservaNumeroTarjeta,PReservaFechaVencimiento,PReservaCodigoTarjeta,ReservaHId")] PagoReserva pagoReserva)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PReservaId,PReservaTitular,PReservaCedula,PReservaNumeroTarjeta,PReservaFechaVencimiento,PReservaCodigoTarjeta,ReservaHId")] PagoReserva pagoReserva)
+        public async Task<IActionResult> Edit(int id, [Bind("PReservaId,PReservaFullName,PReservaCorreo,PReservaTitular,PReservaCedula,PReservaNumeroTarjeta,PReservaFechaVencimiento,PReservaCodigoTarjeta,ReservaHId")] PagoReserva pagoReserva)
         {
             if (id != pagoReserva.PReservaId)
             {
@@ -131,7 +131,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
             }
 
             var pagoReserva = await _context.PagoReservas
-                .Include(p => p.ReservaHabitacion)
+                .Include(p => p.ReservaHId)
                 .FirstOrDefaultAsync(m => m.PReservaId == id);
             if (pagoReserva == null)
             {

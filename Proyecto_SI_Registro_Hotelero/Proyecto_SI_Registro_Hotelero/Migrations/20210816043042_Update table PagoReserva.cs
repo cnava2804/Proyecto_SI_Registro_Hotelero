@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
-    public partial class Agregadodebotones : Migration
+    public partial class UpdatetablePagoReserva : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -258,11 +258,13 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                 {
                     PReservaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    PReservaFullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PReservaCorreo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PReservaTitular = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PReservaCedula = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PReservaNumeroTarjeta = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PReservaFechaVencimiento = table.Column<int>(type: "int", nullable: false),
-                    PReservaCodigoTarjeta = table.Column<int>(type: "int", nullable: false),
+                    PReservaFechaVencimiento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PReservaCodigoTarjeta = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ReservaHId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
