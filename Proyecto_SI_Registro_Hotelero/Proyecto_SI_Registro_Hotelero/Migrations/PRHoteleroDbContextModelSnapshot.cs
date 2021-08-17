@@ -292,8 +292,8 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                     b.Property<string>("PReservaCorreo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PReservaFechaVencimiento")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("PReservaFechaVencimiento")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("PReservaFullName")
                         .HasColumnType("nvarchar(max)");

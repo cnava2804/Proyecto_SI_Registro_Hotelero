@@ -35,7 +35,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
             }
 
             var pagoReserva = await _context.PagoReservas
-                .Include(p => p.ReservaHId)
+                .Include(p => p.ReservaHabitacion)
                 .FirstOrDefaultAsync(m => m.PReservaId == id);
             if (pagoReserva == null)
             {
@@ -48,6 +48,8 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
         // GET: PagoReservas/Create
         public IActionResult Create()
         {
+
+
             ViewData["ReservaHId"] = new SelectList(_context.ReservaHabitaciones, "ReservaHId", "ReservaHId");
             return View();
         }
@@ -66,7 +68,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ReservaHId"] = new SelectList(_context.ReservaHabitaciones, "ReservaHId", "ReservaHId", pagoReserva.ReservaHId);
-            return View(pagoReserva);
+            return View();
         }
 
         // GET: PagoReservas/Edit/5
@@ -131,7 +133,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
             }
 
             var pagoReserva = await _context.PagoReservas
-                .Include(p => p.ReservaHId)
+                .Include(p => p.ReservaHabitacion)
                 .FirstOrDefaultAsync(m => m.PReservaId == id);
             if (pagoReserva == null)
             {
