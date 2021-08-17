@@ -10,8 +10,8 @@ using Proyecto_SI_Registro_Hotelero.Data;
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
     [DbContext(typeof(PRHoteleroDbContext))]
-    [Migration("20210816103717_Update table PagoR")]
-    partial class UpdatetablePagoR
+    [Migration("20210817102253_Programahdp")]
+    partial class Programahdp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
