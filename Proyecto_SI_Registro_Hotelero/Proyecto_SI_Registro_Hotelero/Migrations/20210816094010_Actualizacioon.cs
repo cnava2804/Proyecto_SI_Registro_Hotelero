@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
-    public partial class UpdatetablePagoReserva : Migration
+    public partial class Actualizacioon : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
