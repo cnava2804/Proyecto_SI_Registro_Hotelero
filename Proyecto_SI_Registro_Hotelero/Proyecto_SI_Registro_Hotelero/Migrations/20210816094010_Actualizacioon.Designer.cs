@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proyecto_SI_Registro_Hotelero.Data;
 
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
     [DbContext(typeof(PRHoteleroDbContext))]
-    partial class PRHoteleroDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210816094010_Actualizacioon")]
+    partial class Actualizacioon
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -292,8 +294,8 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                     b.Property<string>("PReservaCorreo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("PReservaFechaVencimiento")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("PReservaFechaVencimiento")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PReservaFullName")
                         .HasColumnType("nvarchar(max)");
