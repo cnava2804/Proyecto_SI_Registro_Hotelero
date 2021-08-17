@@ -10,8 +10,8 @@ using Proyecto_SI_Registro_Hotelero.Data;
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
     [DbContext(typeof(PRHoteleroDbContext))]
-    [Migration("20210817062016_Tablaas")]
-    partial class Tablaas
+    [Migration("20210817121543_Actualizado")]
+    partial class Actualizado
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -259,7 +259,7 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("HabitacionPrecio")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(12,2)");
 
                     b.Property<int>("PisoHId")
                         .HasColumnType("int");

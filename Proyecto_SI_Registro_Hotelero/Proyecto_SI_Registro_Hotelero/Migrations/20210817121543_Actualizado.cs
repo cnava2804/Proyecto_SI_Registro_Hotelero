@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
-    public partial class Tablaas : Migration
+    public partial class Actualizado : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -201,7 +201,7 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HabitacionNumero = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HabitacionDescripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HabitacionPrecio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    HabitacionPrecio = table.Column<decimal>(type: "decimal(12,2)", nullable: false),
                     TipoHId = table.Column<int>(type: "int", nullable: false),
                     PisoHId = table.Column<int>(type: "int", nullable: false),
                     EstadoHId = table.Column<int>(type: "int", nullable: false)

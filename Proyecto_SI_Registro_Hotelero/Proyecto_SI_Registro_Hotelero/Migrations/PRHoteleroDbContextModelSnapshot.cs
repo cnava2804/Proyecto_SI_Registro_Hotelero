@@ -257,7 +257,7 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("HabitacionPrecio")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(12,2)");
 
                     b.Property<int>("PisoHId")
                         .HasColumnType("int");
