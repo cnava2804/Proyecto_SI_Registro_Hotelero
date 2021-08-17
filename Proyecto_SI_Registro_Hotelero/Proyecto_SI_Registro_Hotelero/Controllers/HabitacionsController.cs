@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Proyecto_SI_Registro_Hotelero.Cammon;
 using Proyecto_SI_Registro_Hotelero.Data;
 using Proyecto_SI_Registro_Hotelero.Models;
 
@@ -13,6 +14,9 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
     public class HabitacionsController : Controller
     {
         private readonly PRHoteleroDbContext _context;
+        private readonly int RecordsPerPage = 10;
+      
+        private Pagination<Habitacion> PaginationHabitacion;
 
         public HabitacionsController(PRHoteleroDbContext context)
         {
@@ -20,10 +24,45 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
         }
 
         // GET: Habitacions
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search,int page = 1)
         {
-            var applicationDbContext = _context.Habitaciones.Include(h => h.EstadoHabitacion).Include(h => h.PisoHabitacion).Include(h => h.TipoHabitacion);
-            return View(await applicationDbContext.ToListAsync());
+            int totalRecords = 0;
+
+            if (search == null)
+            {
+                search = "";
+                //var applicationDbContext = _context.Habitaciones.Include(h => h.EstadoHabitacion).Include(h => h.PisoHabitacion).Include(h => h.TipoHabitacion);
+                //return View(await applicationDbContext.ToListAsync());
+            }
+            //Obtener los registros totales 
+            totalRecords = await _context.Habitaciones.Include(a => a.TipoHabitacion).Include(a => a.PisoHabitacion).Include(a => a.EstadoHabitacion).CountAsync(
+                    d => d.HabitacionDescripcion.Contains(search));
+
+            //Obtener la pagina de registros(datos)
+            var habi= await _context.Habitaciones.Include(a => a.TipoHabitacion).Include(a => a.PisoHabitacion).Include(a => a.EstadoHabitacion)
+                .Where(d => d.HabitacionDescripcion.Contains(search)).ToListAsync();
+
+            var habiResult = habi.OrderBy(o => o.HabitacionDescripcion)
+                .Skip((page - 1) * RecordsPerPage)
+                .Take(RecordsPerPage);
+
+            //Obtener el total de paginas
+            var totalPage = (int)Math.Ceiling((double)totalRecords / RecordsPerPage);
+
+            //Instanciar la clase de paginacion
+            PaginationHabitacion = new Pagination<Habitacion>()
+            {
+                RecordsPerPage = this.RecordsPerPage,
+                TotalRecords = totalRecords,
+                TotalPage = totalPage,
+                CurrentPage = page,
+                Search = search,
+                Result = habiResult
+            };
+            return View(PaginationHabitacion);
+
+            //return View(await _context.Habitaciones.Where
+            //    (h => h.HabitacionDescripcion.Contains(search)).ToListAsync());
         }
 
         // GET: Habitacions/Details/5

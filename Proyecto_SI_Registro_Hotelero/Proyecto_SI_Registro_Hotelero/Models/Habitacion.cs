@@ -21,25 +21,28 @@ namespace Proyecto_SI_Registro_Hotelero.Models
 
 
         [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:C0}")]
-        [Column(TypeName = "decimal(18,2)")]
+        //[DisplayFormat(DataFormatString = "{0:C0}")]
+        [Column(TypeName = "decimal(12,2)")]
         [Display(Name = "Precio")]
         public decimal HabitacionPrecio { get; set; }
 
-
+        [Display(Name = "Tipo de Habitación")]
         public int TipoHId { get; set; }
         [ForeignKey("TipoHId")]
 
         [Display(Name = "Tipo de Habitación")]
         public TipoHabitacion TipoHabitacion { get; set; }
-       
+
+
+        [Display(Name = "Piso")]
         public int PisoHId { get; set; }
         [ForeignKey("PisoHId")]
 
         [Display(Name = "Piso")]
         public PisoHabitacion PisoHabitacion { get; set; }
 
-       
+
+        [Display(Name = "Estado")]
         public int EstadoHId { get; set; }
         [ForeignKey("EstadoHId")]
 
