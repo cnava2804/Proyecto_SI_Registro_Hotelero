@@ -143,6 +143,12 @@ carousel-inner {
     background-repeat: no-repeat;
     background-position: center;
 }
+#Imag3 {
+    background-image: url("https://cdn.pixabay.com/photo/2021/02/03/00/10/receptionists-5975962_960_720.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 #contenedor {
     background-image: url("https://cdn.pixabay.com/photo/2015/04/09/14/03/church-714523_960_720.jpg");

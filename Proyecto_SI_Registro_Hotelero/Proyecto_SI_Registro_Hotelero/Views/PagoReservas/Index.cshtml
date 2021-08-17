@@ -3,70 +3,66 @@
 @{
     ViewData["Title"] = "Index";
 }
+<body id="Imag3">
+    <h1 style="margin-top:-90px;"class="text-white">Pagos de Reserva Habitaciones</h1>
+    <br />
 
-<h1>Pagos de Reserva Habitaciones</h1>
-<br />
-<p>
-    <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-file"></i> Nuevo Pago </a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PReservaTitular)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PReservaCedula)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PReservaNumeroTarjeta)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PReservaFechaVencimiento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PReservaCodigoTarjeta)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReservaHabitacion)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PReservaTitular)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PReservaCedula)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PReservaNumeroTarjeta)
-            </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.PReservaFechaVencimiento, "{MM/yyyy}")*@
-                @Html.ValueFor(modelItem => item.PReservaFechaVencimiento, "{0:MM/yyyy}")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PReservaCodigoTarjeta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservaHabitacion.ReservaHId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => ((item.ReservaHabitacion.FechasSalida - item.ReservaHabitacion.FechaIngreso).Days))
-            </td>
-            <td>
-                <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@item.PReservaId">Editar</a>
-                <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.PReservaId">Detalles</a>
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.PReservaId">Borrar</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
-
+    <table class="table table-light table-borderless" style="margin-top:40px;">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PReservaTitular)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PReservaCedula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PReservaNumeroTarjeta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PReservaFechaVencimiento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PReservaCodigoTarjeta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReservaHabitacion)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PReservaTitular)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PReservaCedula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PReservaNumeroTarjeta)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.PReservaFechaVencimiento, "{MM/yyyy}")*@
+                        @Html.ValueFor(modelItem => item.PReservaFechaVencimiento, "{0:MM/yyyy}")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PReservaCodigoTarjeta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReservaHabitacion.ReservaHId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => ((item.ReservaHabitacion.FechasSalida - item.ReservaHabitacion.FechaIngreso).Days))
+                    </td>
+                    <td>
+                        <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.PReservaId">Detalles</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </body>
 

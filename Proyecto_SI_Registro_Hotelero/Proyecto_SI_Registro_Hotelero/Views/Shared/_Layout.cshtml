@@ -10,51 +10,42 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 
-<body >
-        <header>
-            <nav class="navbar navbar-dark bg-dark navbar navbar-expand-sm navbar-dark box-shadow mb-4">
-                <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Registro Hotelero</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <partial name="_LoginPartial.cshtml" />
-                        <ul class="navbar-nav flex-grow-1" >
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="ReservaHabitacions" asp-action="Index">Reservas</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </nav>
-        </header>
-        
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark navbar navbar-expand-sm navbar-dark box-shadow mb-4">
             <div class="container">
-                <main role="main" class="pb-3" style="margin-top:150px;">
-                    @RenderBody()
-                </main>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Registro Hotelero</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial.cshtml" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-
-
         </nav>
     </header>
 
+    <div class="container">
+        <main role="main" class="pb-3" style="margin-top:150px;">
+            @RenderBody()
+        </main>
+    </div>
 
-            <footer class="border-top footer text-white bg-dark">
-                <div class="container">
-                    &copy; 2021 - Proyecto_SI_Registro_Hotelero - <a asp-area="" asp-controller="Home" asp-action="Privacy"></a>
-                </div>
-            </footer>
-            <script src="~/lib/jquery/dist/jquery.min.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-            @await RenderSectionAsync("Scripts", required: false)
-        
+    <footer class="border-top footer text-white bg-dark">
+        <div class="container">
+            &copy; 2021 - Proyecto_SI_Registro_Hotelero - <a asp-area="" asp-controller="Home" asp-action="Privacy"></a>
+        </div>
+    </footer>
 </body>
 </html>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
