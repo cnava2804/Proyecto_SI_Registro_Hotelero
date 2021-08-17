@@ -3,53 +3,50 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<body id="Imag2">
+    <h1 class="text-white">Editar Reservación</h1>
 
-<h1>Edit</h1>
+    <hr style="background-color:white;"/>
+    <div class="row" >
+        <div class="col-md-4 text-white">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ReservaHId" />
+                <div class="form-group">
+                    <label asp-for="ReservaNombre" class="control-label"></label>
+                    <input asp-for="ReservaNombre" class="form-control" />
+                    <span asp-validation-for="ReservaNombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReservaApellido" class="control-label"></label>
+                    <input asp-for="ReservaApellido" class="form-control" />
+                    <span asp-validation-for="ReservaApellido" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FechaIngreso" class="control-label"></label>
+                    <input asp-for="FechaIngreso" class="form-control" />
+                    <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FechasSalida" class="control-label"></label>
+                    <input asp-for="FechasSalida" class="form-control" />
+                    <span asp-validation-for="FechasSalida" class="text-danger"></span>
+                </div>
 
-<h4>ReservaHabitacion</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ReservaHId" />
-            <div class="form-group">
-                <label asp-for="ReservaNombre" class="control-label"></label>
-                <input asp-for="ReservaNombre" class="form-control" />
-                <span asp-validation-for="ReservaNombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ReservaApellido" class="control-label"></label>
-                <input asp-for="ReservaApellido" class="form-control" />
-                <span asp-validation-for="ReservaApellido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaIngreso" class="control-label"></label>
-                <input asp-for="FechaIngreso" class="form-control" />
-                <span asp-validation-for="FechaIngreso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechasSalida" class="control-label"></label>
-                <input asp-for="FechasSalida" class="form-control" />
-                <span asp-validation-for="FechasSalida" class="text-danger"></span>
-            </div>
-         
-            <div class="form-group">
-                <label asp-for="HabitacionId" class="control-label"></label>
-                <select asp-for="HabitacionId" class="form-control" asp-items="ViewBag.HabitacionId"></select>
-                <span asp-validation-for="HabitacionId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="form-group">
+                    <label asp-for="HabitacionId" class="control-label"></label>
+                    <select asp-for="HabitacionId" class="form-control" asp-items="ViewBag.HabitacionId"></select>
+                    <span asp-validation-for="HabitacionId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-outline-primary" />
+                    <a asp-action="Index" class="btn btn-warning">Regresar</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+</body>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
