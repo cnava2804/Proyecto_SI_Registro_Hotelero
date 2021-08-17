@@ -4,50 +4,52 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Detalles</h1>
-<div>
-    
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HabitacionNumero)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HabitacionNumero)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HabitacionDescripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HabitacionDescripcion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HabitacionPrecio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HabitacionPrecio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TipoHabitacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TipoHabitacion.TipoDescripcion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PisoHabitacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PisoHabitacion.Piso)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EstadoHabitacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EstadoHabitacion.Estado)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@Model.HabitacionId">Editar</a> 
-    <a asp-action="Index" class="btn btn-warning">Regresar</a>
-</div>
+<body id="Imag">
+    <h1>Detalles</h1>
+    <div class="container" style="background-color:white; border-radius:15px; ">
+
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HabitacionNumero)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HabitacionNumero)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HabitacionDescripcion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HabitacionDescripcion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HabitacionPrecio)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HabitacionPrecio)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TipoHabitacion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TipoHabitacion.TipoDescripcion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PisoHabitacion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PisoHabitacion.Piso)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EstadoHabitacion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EstadoHabitacion.Estado)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@Model.HabitacionId">Editar</a>
+        <a asp-action="Index" class="btn btn-warning">Regresar</a>
+    </div>
+</body>

@@ -4,8 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista de Habitaciones</h1>
-<br />
+
+<body id="Imag">
+    <h1 style="margin-top:-65px;">Habitaciones</h1>
+    <p style="margin-top:45px;">
+        <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-file"></i> Nueva Habitación</a>
+    </p>
+   
 
 <div class="row search">
     <div class="col-auto">
@@ -18,9 +23,8 @@
 </div>
 <br />
 
-<div class="table-responsive">
-    <table class="table">
-        <thead>
+ <table class="table table-light table-borderless" >
+        <thead class="table-dark">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Result.SingleOrDefault().HabitacionNumero)
@@ -39,12 +43,16 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Result.SingleOrDefault().EstadoHabitacion.Estado)
+
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
+
+
             @foreach (var item in Model.Result)
+
             {
                 <tr>
                     <td>
@@ -66,15 +74,20 @@
                         @Html.DisplayFor(modelItem => item.EstadoHabitacion.Estado)
                     </td>
                     <td>
-                        <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@item.HabitacionId">Editar</a>
+
+                        <a asp-action="Edit" class="btn btn-outline-secondary" asp-route-id="@item.HabitacionId">Editar</a>
                         <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.HabitacionId">Detalles</a>
-                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.HabitacionId">Borrar</a>
+                        <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.HabitacionId">Borrar</a>
+
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-</div>
+
+</body>
+
+
 
 @*Codigo para paginar registros*@
 @if (Model.Result.Count() > 0)
@@ -135,3 +148,4 @@ else
 
 <link rel="stylesheet" href="~/css/common.css" />
 <script src="~/js/habitacions.js" asp-append-version="true"></script>
+

@@ -114,13 +114,16 @@ carousel-inner {
 }*/
 
 .carousel-item > img {
-    height: 32rem;
+    height: 35rem;
 }
 
     .carousel, .carousel-inner > .item > img {
-    margin-left: -287px;
-    margin-top: -17px;
-    width: 1685px;
+    margin-left: -180px;
+    margin-top: -100px;
+    width: 1400px;
+    border:solid;
+    border-color:white;
+    border-radius:33px;
     
 }
 #transp {
@@ -128,11 +131,30 @@ carousel-inner {
     border-color: #000000;
 }
 
-#bodyPri {
+#Imag {
     background-image: url("https://cdn.pixabay.com/photo/2016/09/18/03/28/travel-1677347_960_720.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+#Imag2 {
+    background-image: url("https://cdn.pixabay.com/photo/2016/04/15/11/43/hotel-1330834_960_720.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#contenedor {
+    background-image: url("https://cdn.pixabay.com/photo/2015/04/09/14/03/church-714523_960_720.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#logo {
+    background: url("https://image.freepik.com/vector-gratis/identidad-corporativa-editable-negocio-vector-logotipo-hotel-texto-oculto-hotel_53876-111556.jpg") no-repeat center;
+    height: 70px;
+    width: 150px;
+    background-size: contain;
 }
 
 

@@ -4,49 +4,50 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Borrar</h1>
+<body id="Imag2">
+   
+    <h3 class="text-black">¿Estás seguro de borrar esta reserva de la habitación?</h3>
+    <div class="container" style="background-color:white; border-radius:15px;">
 
-<h3>¿Estás seguro de borrar reserva de la habitación?</h3>
-<div>
-    
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ReservaNombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ReservaNombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ReservaApellido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ReservaApellido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaIngreso)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaIngreso)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechasSalida)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechasSalida)
-        </dd>
-        
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Habitacion.HabitacionNumero)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Habitacion.HabitacionNumero)
-        </dd class>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="ReservaHId" />
-        <input type="submit" class="btn btn-danger" value="Borrar" />
-        <a asp-action="Index" class="btn btn-warning">Regresar</a>
-    </form>
-</div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ReservaNombre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ReservaNombre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ReservaApellido)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ReservaApellido)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FechaIngreso)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FechasSalida)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FechasSalida)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Habitacion.HabitacionNumero)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Habitacion.HabitacionNumero)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ReservaHId" />
+            <input type="submit" class="btn btn-outline-danger" value="Borrar" />
+            <a asp-action="Index" class="btn btn-warning">Regresar</a>
+        </form>
+    </div>
+    </body>

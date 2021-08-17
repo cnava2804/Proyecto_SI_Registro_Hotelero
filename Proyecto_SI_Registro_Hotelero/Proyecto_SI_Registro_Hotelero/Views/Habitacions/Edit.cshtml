@@ -4,55 +4,56 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Editar</h1>
+<body id="Imag">
+    <h1>Editar</h1>
 
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="HabitacionId" />
-            <div class="form-group">
-                <label asp-for="HabitacionNumero" class="control-label"></label>
-                <input asp-for="HabitacionNumero" class="form-control" />
-                <span asp-validation-for="HabitacionNumero" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HabitacionDescripcion" class="control-label"></label>
-                <input asp-for="HabitacionDescripcion" class="form-control" />
-                <span asp-validation-for="HabitacionDescripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HabitacionPrecio" class="control-label"></label>
-                <input asp-for="HabitacionPrecio" class="form-control" />
-                <span asp-validation-for="HabitacionPrecio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TipoHId" class="control-label"></label>
-                <select asp-for="TipoHId" class="form-control" asp-items="ViewBag.TipoHId"></select>
-                <span asp-validation-for="TipoHId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PisoHId" class="control-label"></label>
-                <select asp-for="PisoHId" class="form-control" asp-items="ViewBag.PisoHId"></select>
-                <span asp-validation-for="PisoHId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EstadoHId" class="control-label"></label>
-                <select asp-for="EstadoHId" class="form-control" asp-items="ViewBag.EstadoHId"></select>
-                <span asp-validation-for="EstadoHId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-outline-success" />
-                <a asp-action="Index" class="btn btn-warning">Regresar</a>
-            </div>
-        </form>
+    <hr style="background-color:black" />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="HabitacionId" />
+                <div class="form-group">
+                    <label asp-for="HabitacionNumero" class="control-label"></label>
+                    <input asp-for="HabitacionNumero" class="form-control" />
+                    <span asp-validation-for="HabitacionNumero" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HabitacionDescripcion" class="control-label"></label>
+                    <input asp-for="HabitacionDescripcion" class="form-control" />
+                    <span asp-validation-for="HabitacionDescripcion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HabitacionPrecio" class="control-label"></label>
+                    <input asp-for="HabitacionPrecio" class="form-control" />
+                    <span asp-validation-for="HabitacionPrecio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TipoHId" class="control-label"></label>
+                    <select asp-for="TipoHId" class="form-control" asp-items="ViewBag.TipoHId"></select>
+                    <span asp-validation-for="TipoHId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PisoHId" class="control-label"></label>
+                    <select asp-for="PisoHId" class="form-control" asp-items="ViewBag.PisoHId"></select>
+                    <span asp-validation-for="PisoHId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EstadoHId" class="control-label"></label>
+                    <select asp-for="EstadoHId" class="form-control" asp-items="ViewBag.EstadoHId"></select>
+                    <span asp-validation-for="EstadoHId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-outline-success" />
+                    <a asp-action="Index" class="btn btn-warning">Regresar</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+</body>
 
 
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

@@ -3,11 +3,12 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-
-<h1>Reserva de Habitaciones</h1>
-<br />
-
+<body id="Imag2">
+    <h1 style="margin-top:-65px;">Reservas de Habitaciones</h1>
+    <p style="margin-top:45px;">
+      <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-file"></i> Nueva Reserva</a>
+    </p>
+      
 <div class="row search">
     <div class="col-auto">
         <input type="text" class="form-control-plaintext" id="txt-search" placeholder="Buscar..." />
@@ -20,9 +21,9 @@
 <br />
 
 
-<div class="table-responsive">
-    <table class="table">
-        <thead>
+
+   <table class="table table-light table-borderless">
+        <thead class="table-dark">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Result.SingleOrDefault().ReservaNombre)
@@ -68,13 +69,14 @@
                         <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.ReservaHId">Detalles</a>
                         <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.ReservaHId">Borrar</a>
                       
-                        <a class="btn btn-dark" asp-controller="PagoReservas" asp-action="Create"> COMPRAR <i class="fas fa-bell"></i></a>
+                         <a class="btn btn-dark" asp-controller="PagoReservas" style="margin-top:10px;" asp-action="Create"> Pagar <i class="fas fa-bell "></i></a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-</div>
+
+</body>
 
 @*Codigo para paginar registros*@
 @if (Model.Result.Count() > 0)
@@ -189,4 +191,5 @@ else
 }
     </tbody>
 </table>
+
 

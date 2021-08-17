@@ -12,7 +12,7 @@ namespace Proyecto_SI_Registro_Hotelero.Models
         [Key]
         public int HabitacionId { get; set; }
 
-        [Display(Name = "Número de Habitación")]
+        [Display(Name = "Número Habitación")]
         public string HabitacionNumero { get; set; }
 
 
