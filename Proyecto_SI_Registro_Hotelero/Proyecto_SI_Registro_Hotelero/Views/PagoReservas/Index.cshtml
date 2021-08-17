@@ -34,7 +34,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.PReservaTitular)
@@ -46,7 +47,8 @@
                 @Html.DisplayFor(modelItem => item.PReservaNumeroTarjeta)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PReservaFechaVencimiento)
+                @*@Html.DisplayFor(modelItem => item.PReservaFechaVencimiento, "{MM/yyyy}")*@
+                @Html.ValueFor(modelItem => item.PReservaFechaVencimiento, "{0:MM/yyyy}")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PReservaCodigoTarjeta)
@@ -55,11 +57,16 @@
                 @Html.DisplayFor(modelItem => item.ReservaHabitacion.ReservaHId)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => ((item.ReservaHabitacion.FechasSalida - item.ReservaHabitacion.FechaIngreso).Days))
+            </td>
+            <td>
                 <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@item.PReservaId">Editar</a>
                 <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.PReservaId">Detalles</a>
                 <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.PReservaId">Borrar</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
+
+
