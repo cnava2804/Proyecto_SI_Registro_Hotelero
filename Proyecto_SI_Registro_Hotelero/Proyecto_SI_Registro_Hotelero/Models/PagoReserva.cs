@@ -33,6 +33,14 @@ namespace Proyecto_SI_Registro_Hotelero.Models
         [Display(Name = "Código Tarjeta")]
         public string PReservaCodigoTarjeta { get; set; }
 
+        //public int Total
+        //{
+        //    get
+        //    {
+        //        return Convert.ToInt32(ReservaHabitacion.Dias * 150);
+        //    }
+        //}
+
         public int ReservaHId { get; set; }
         [ForeignKey("ReservaHId")]
         public ReservaHabitacion ReservaHabitacion { get; set; }

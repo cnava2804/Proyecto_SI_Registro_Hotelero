@@ -18,11 +18,19 @@ namespace Proyecto_SI_Registro_Hotelero.Models
         [Display(Name = "Apellido del Huésped")]
         public string ReservaApellido { get; set; }
 
-        [Display(Name = "Fecha de Ingreso")]
+        [Display(Name = "Total a Pagar")]
         public DateTime FechaIngreso { get; set; }
 
-        [Display(Name = "Fecha de Salida")]
+        [Display(Name = "Estadia en el Hotel")]
         public DateTime FechasSalida { get; set; }
+
+        public int Dias
+        {
+            get
+            {
+                return Convert.ToInt32((FechasSalida.Date - FechaIngreso.Date).TotalDays);
+            }
+        }
 
         [Display(Name = "Número de Habitación")]
         public int HabitacionId { get; set; }

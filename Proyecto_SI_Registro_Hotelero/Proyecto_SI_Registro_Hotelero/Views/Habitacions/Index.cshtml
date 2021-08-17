@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Proyecto_SI_Registro_Hotelero.Models.Habitacion>
+﻿@model Proyecto_SI_Registro_Hotelero.Cammon.Pagination<Habitacion>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,32 +10,49 @@
     <p style="margin-top:45px;">
         <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-file"></i> Nueva Habitación</a>
     </p>
-    <table class="table table-light table-borderless" >
+   
+
+<div class="row search">
+    <div class="col-auto">
+        <input type="text" class="form-control-plaintext" id="txt-search" placeholder="Buscar..." />
+    </div>
+    <div class="col-auto">
+        <a class="btn btn-success" onclick="habitacion_search()" id="search-link"><i class="fas fa-search"></i></a>
+        <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-file"></i> Nueva Habitación</a>
+    </div>
+</div>
+<br />
+
+ <table class="table table-light table-borderless" >
         <thead class="table-dark">
             <tr>
-                <th style="width:1px;">
-                    @Html.DisplayNameFor(model => model.HabitacionNumero)
+                <th>
+                    @Html.DisplayNameFor(model => model.Result.SingleOrDefault().HabitacionNumero)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.HabitacionDescripcion)
+                    @Html.DisplayNameFor(model => model.Result.SingleOrDefault().HabitacionDescripcion)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.HabitacionPrecio)
+                    @Html.DisplayNameFor(model => model.Result.SingleOrDefault().HabitacionPrecio)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.TipoHabitacion.TipoDescripcion)
+                    @Html.DisplayNameFor(model => model.Result.SingleOrDefault().TipoHabitacion.TipoDescripcion)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.PisoHabitacion.Piso)
+                    @Html.DisplayNameFor(model => model.Result.SingleOrDefault().PisoHabitacion.Piso)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.EstadoHabitacion.Estado)
+                    @Html.DisplayNameFor(model => model.Result.SingleOrDefault().EstadoHabitacion.Estado)
+
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+
+
+            @foreach (var item in Model.Result)
+
             {
                 <tr>
                     <td>
@@ -57,13 +74,78 @@
                         @Html.DisplayFor(modelItem => item.EstadoHabitacion.Estado)
                     </td>
                     <td>
+
                         <a asp-action="Edit" class="btn btn-outline-secondary" asp-route-id="@item.HabitacionId">Editar</a>
                         <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.HabitacionId">Detalles</a>
                         <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.HabitacionId">Borrar</a>
+
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+
 </body>
+
+
+
+@*Codigo para paginar registros*@
+@if (Model.Result.Count() > 0)
+{
+    <span>
+        <strong>@Model.TotalRecords</strong> Registros Encontrados
+    </span>
+    <span> | </span>
+    <span>
+        Pagina <strong>@Model.CurrentPage</strong> de
+        <strong>@Model.TotalPage</strong>
+    </span>
+    <span> | </span> }
+else
+{
+    <span>No hay resultados para esta busqueda</span>
+    <span> | </span>}
+
+@if (Model.CurrentPage > 1)
+{
+    @Html.ActionLink("<<", "Index", new { Page = 1, Search = Model.Search },
+            new { @class = "btn btn-sm btn-default" })
+
+    <span></span>
+
+    @Html.ActionLink("Anterior", "Index", new { Page = Model.CurrentPage - 1, Search = Model.Search },
+            new { @class = "btn btn-sm btn-default" }) }
+else
+{
+    @Html.ActionLink("<<", "Index", new { Page = 1, Search = Model.Search },
+            new { @class = "btn btn-sm btn-default disabled" })
+
+    <span></span>
+
+    @Html.ActionLink("Anterior", "Index", new { Page = 1, Search = Model.Search },
+            new { @class = "btn btn-sm btn-default disabled" })}
+
+<span></span>
+
+@if (Model.CurrentPage < Model.TotalPage)
+{
+    @Html.ActionLink("Siguiente", "Index", new { Page = Model.CurrentPage + 1, Search = Model.Search },
+            new { @class = "btn btn-sm btn-default" })
+
+    <span></span>
+
+    @Html.ActionLink(">>", "Index", new { Page = Model.TotalPage, Search = Model.Search },
+            new { @class = "btn btn-sm btn-default" }) }
+else
+{
+    @Html.ActionLink("Siguiente", "Index", new { Page = Model.CurrentPage - 1, Search = Model.Search },
+            new { @class = "btn btn-sm btn-default disabled" })
+
+    <span></span>
+
+    @Html.ActionLink(">>", "Index", new { Page = Model.TotalPage, Search = Model.Search },
+            new { @class = "btn btn-sm btn-default disabled" })}
+
+<link rel="stylesheet" href="~/css/common.css" />
+<script src="~/js/habitacions.js" asp-append-version="true"></script>
 
