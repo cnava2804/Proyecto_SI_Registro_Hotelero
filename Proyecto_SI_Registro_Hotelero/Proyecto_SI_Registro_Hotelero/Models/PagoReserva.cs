@@ -28,7 +28,7 @@ namespace Proyecto_SI_Registro_Hotelero.Models
         public string PReservaNumeroTarjeta { get; set; }
 
         [Display(Name = "Fecha Vecimiento")]
-        public string PReservaFechaVencimiento { get; set; }
+        public DateTime PReservaFechaVencimiento { get; set; }
 
         [Display(Name = "Código Tarjeta")]
         public string PReservaCodigoTarjeta { get; set; }

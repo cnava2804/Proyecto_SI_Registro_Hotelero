@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
-<<<<<<< HEAD:Proyecto_SI_Registro_Hotelero/Proyecto_SI_Registro_Hotelero/Migrations/20210816045334_Create.cs
-    public partial class Create : Migration
-=======
-    public partial class Actualizacioon : Migration
->>>>>>> 709c2236337e42bbe85bd14ab60da113cb62d9d9:Proyecto_SI_Registro_Hotelero/Proyecto_SI_Registro_Hotelero/Migrations/20210816094010_Actualizacioon.cs
+    public partial class UpdatetablePagoR : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -267,7 +263,7 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                     PReservaTitular = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PReservaCedula = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PReservaNumeroTarjeta = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PReservaFechaVencimiento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PReservaFechaVencimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PReservaCodigoTarjeta = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ReservaHId = table.Column<int>(type: "int", nullable: false)
                 },
