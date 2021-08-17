@@ -10,8 +10,8 @@ using Proyecto_SI_Registro_Hotelero.Data;
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
     [DbContext(typeof(PRHoteleroDbContext))]
-    [Migration("20210816043042_Update table PagoReserva")]
-    partial class UpdatetablePagoReserva
+    [Migration("20210816103717_Update table PagoR")]
+    partial class UpdatetablePagoR
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -294,8 +294,8 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                     b.Property<string>("PReservaCorreo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PReservaFechaVencimiento")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("PReservaFechaVencimiento")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("PReservaFullName")
                         .HasColumnType("nvarchar(max)");

@@ -70,82 +70,90 @@
 
 
 
+            <head>
+                <title>Checkout Card</title>
+                <link href='https://www.soengsouy.com/favicon.ico' rel='icon' type='image/x-icon' />
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<head>
-    <title>Checkout Card</title>
-    <link href='https://www.soengsouy.com/favicon.ico' rel='icon' type='image/x-icon' />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
-    
-    <link rel="stylesheet" href="Style.css">
-</head>
-<body>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
 
-    <div class="row">
-        <div class="col-75">
-            <div class="container-fluid">
-                <form id="validate" action="/action_page.php">
-                    <div class="row">
-                        <div class="col-50">
-                            <h3>Billing Address</h3>
-                            @*<label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                <input type="text" id="fname" name="fullname" placeholder="Soeng.Souy" required>
-                <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                <input type="text" id="email" name="email" placeholder="soeng.souy@gmail.com" required>
-                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                <input type="text" id="adr" name="address" placeholder="110 W. 15th Phnom Penh" required>
-                <label for="city"><i class="fa fa-institution"></i> City</label>
-                <input type="text" id="city" name="city" placeholder="Phnom Penh" required>*@
+                <link rel="stylesheet" href="Style.css">
+            </head>
+            <body>
+                <!--<-->@*div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+                            <div class="row">
+                                <div class="col-75">
+                                    <div class="container-fluid">
+                                        <form asp-action="Create" id="validate">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <div class="row">
+                                                <div class="col-50">
+                                                    <h3>Billing Address</h3>
+                                                    @*<label for="fname"><i class="fa fa-user"></i> Full Name</label>
+        <input type="text" id="fname" name="fullname" placeholder="Soeng.Souy" required>
+        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+        <input type="text" id="email" name="email" placeholder="soeng.souy@gmail.com" required>
+        <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+        <input type="text" id="adr" name="address" placeholder="110 W. 15th Phnom Penh" required>
+        <label for="city"><i class="fa fa-institution"></i> City</label>
+        <input type="text" id="city" name="city" placeholder="Phnom Penh" required>*@
 
-                            <div class="form-group">
-                                <label asp-for="PReservaFullName" class="control-label"></label>
-                                <input asp-for="PReservaFullName" class="form-control" />
-                                <span asp-validation-for="PReservaFullName" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="PReservaCorreo" class="control-label"></label>
-                                <input asp-for="PReservaCorreo" class="form-control" />
-                                <span asp-validation-for="PReservaCorreo" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="PReservaCedula" class="control-label"></label>
-                                <input asp-for="PReservaCedula" class="form-control" />
-                                <span asp-validation-for="PReservaCedula" class="text-danger"></span>
-                            </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="PReservaFullName" class="control-label"></label>
+                                                        <input asp-for="PReservaFullName" class="form-control" />
+                                                        <span asp-validation-for="PReservaFullName" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="PReservaCorreo" class="control-label"></label>
+                                                        <input asp-for="PReservaCorreo" class="form-control" />
+                                                        <span asp-validation-for="PReservaCorreo" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="PReservaCedula" class="control-label"></label>
+                                                        <input asp-for="PReservaCedula" class="form-control" />
+                                                        <span asp-validation-for="PReservaCedula" class="text-danger"></span>
+                                                    </div>
 
-                            <div class="form-group">
-                                <label asp-for="ReservaHabitacion.Habitacion.HabitacionDescripcion" class="control-label"></label>
-                                <select asp-for="ReservaHId" class="form-control" asp-items="ViewBag.ReservaHId"></select>
-                            </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="ReservaHabitacion.Habitacion.HabitacionDescripcion" class="control-label"></label>
+                                                        <select asp-for="ReservaHId" class="form-control" asp-items="ViewBag.ReservaHId"></select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="ReservaHId" class="control-label"></label>
+                                                        <select asp-for="ReservaHId" class="form-control" asp-items="ViewBag.ReservaHId"></select>
+                                                        <span asp-validation-for="ReservaHId" class="text-danger"></span>
+                                                    </div>
 
-                            @*<div class="row">
-                    <div class="col-50">
-                        <label for="state">State</label>
-                        <input type="text" id="state" name="state" placeholder="Phnom Penh" required>
-                    </div>
-                    <div class="col-50">
-                        <label for="zip">Zip</label>
-                        <input type="text" id="zip" name="zip" placeholder="12000" required>
-                    </div>
-                </div>*@
-                        </div>
+                                                    @*<div class="row">
+            <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="Phnom Penh" required>
+            </div>
+            <div class="col-50">
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" name="zip" placeholder="12000" required>
+            </div>
+        </div>*@
+                                                </div>
 
-                        <div class="col-50">
-                            <h3>Payment</h3>
-                            <label for="fname">Accepted Cards</label>
-                            <div class="icon-container">
-                                <i class="fa fa-cc-visa" style="color:navy;"></i>
-                                <i class="fa fa-cc-amex" style="color:blue;"></i>
-                                <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                                <i class="fa fa-cc-discover" style="color:orange;"></i>
-                            </div>
+                                                <div class="col-50">
+                                                    <h3>Payment</h3>
+                                                    <label for="fname">Accepted Cards</label>
+                                                    <div class="icon-container">
+                                                        <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                                        <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                                        <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                                        <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                                    </div>
 
-                            @*<label for="cname">Name on Card</label>
+                                                    @*<label for="cname">Name on Card</label>
                 <input type="text" id="cname" name="cardname" placeholder="Soeng Souy" required>
                 <label for="ccnum">Credit card number</label>
                 <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
@@ -162,60 +170,63 @@
                     </div>
                 </div>*@
 
-                            <div class="form-group">
-                                <label asp-for="PReservaTitular" class="control-label"></label>
-                                <input asp-for="PReservaTitular" class="form-control" />
-                                <span asp-validation-for="PReservaTitular" class="text-danger"></span>
+                                                    <div class="form-group">
+                                                        <label asp-for="PReservaTitular" class="control-label"></label>
+                                                        <input asp-for="PReservaTitular" class="form-control" />
+                                                        <span asp-validation-for="PReservaTitular" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="PReservaNumeroTarjeta" class="control-label"></label>
+                                                        <input asp-for="PReservaNumeroTarjeta" class="form-control" />
+                                                        <span asp-validation-for="PReservaNumeroTarjeta" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="PReservaFechaVencimiento" for="month" class="control-label"></label>
+                                                        <input type="month" id="month" asp-for="PReservaFechaVencimiento" class="form-control" />
+                                                        <span asp-validation-for="PReservaFechaVencimiento" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label asp-for="PReservaCodigoTarjeta" class="control-label"></label>
+                                                        <input asp-for="PReservaCodigoTarjeta" class="form-control" />
+                                                        <span asp-validation-for="PReservaCodigoTarjeta" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="submit" value="Pagar" class="btn btn-outline-success" />
+                                                <a asp-action="Index" class="btn btn-warning">Regresar</a>
+                                            </div>
+
+                                            @*<input type="submit" value="Continue to checkout" class="btn-dark">*@
+
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                                @*<div class="col-25">
+                            <div class="container">
+                                <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+                                <p><a href="#">IPHONE 12 Pro Mac</a> <span class="price">$1500</span></p>
+                                <p><a href="#">SAMSUNG S21</a> <span class="price">$1500</span></p>
+                                <p><a href="#">OPPO F14</a> <span class="price">$1400</span></p>
+                                <p><a href="#">HUAWEI 20 Mac</a> <span class="price">$1200</span></p>
+                                <hr>
+                                <p>Total <span class="price" style="color:black"><b>$12600</b></span></p>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="PReservaNumeroTarjeta" class="control-label"></label>
-                                <input asp-for="PReservaNumeroTarjeta" class="form-control" />
-                                <span asp-validation-for="PReservaNumeroTarjeta" class="text-danger"></span>
+                            </div>*@
                             </div>
-                            <div class="form-group">
-                                <label asp-for="PReservaFechaVencimiento" class="control-label"></label>
-                                <input type="month" id="start" name="start" min="2021-03" value="2021-05" asp-for="PReservaFechaVencimiento" class="form-control" />
-                                <span asp-validation-for="PReservaFechaVencimiento" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="PReservaCodigoTarjeta" class="control-label"></label>
-                                <input asp-for="PReservaCodigoTarjeta" class="form-control" />
-                                <span asp-validation-for="PReservaCodigoTarjeta" class="text-danger"></span>
-                            </div>
+                        @*</form>*@
+                    @*</div>
+                </div>*@
 
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="submit" value="Guardar" class="btn btn-outline-success" />
-                        <a asp-action="Index" class="btn btn-warning">Regresar</a>
-                    </div>
-
-                    @*<input type="submit" value="Continue to checkout" class="btn-dark">*@
-                </form>
-            </div>
-        </div>
-        @*<div class="col-25">
-            <div class="container">
-                <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-                <p><a href="#">IPHONE 12 Pro Mac</a> <span class="price">$1500</span></p>
-                <p><a href="#">SAMSUNG S21</a> <span class="price">$1500</span></p>
-                <p><a href="#">OPPO F14</a> <span class="price">$1400</span></p>
-                <p><a href="#">HUAWEI 20 Mac</a> <span class="price">$1200</span></p>
-                <hr>
-                <p>Total <span class="price" style="color:black"><b>$12600</b></span></p>
-            </div>
-        </div>*@
-    </div>
-
-</body>
+            </body>
 
 
 
 
-
-
-<link rel="stylesheet" href="~/css/Site2.css" />
+    <link rel="stylesheet" href="~/css/Site2.css" />
 
 
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
-    public partial class UpdatetablePagoReserva : Migration
+    public partial class UpdatetablePagoR : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -263,7 +263,7 @@ namespace Proyecto_SI_Registro_Hotelero.Migrations
                     PReservaTitular = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PReservaCedula = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PReservaNumeroTarjeta = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PReservaFechaVencimiento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PReservaFechaVencimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PReservaCodigoTarjeta = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ReservaHId = table.Column<int>(type: "int", nullable: false)
                 },
