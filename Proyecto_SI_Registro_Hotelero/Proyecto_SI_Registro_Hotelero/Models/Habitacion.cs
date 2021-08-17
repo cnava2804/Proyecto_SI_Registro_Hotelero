@@ -24,7 +24,7 @@ namespace Proyecto_SI_Registro_Hotelero.Models
         //[DisplayFormat(DataFormatString = "{0:C0}")]
         [Column(TypeName = "decimal(12,2)")]
         [Display(Name = "Precio")]
-        public decimal HabitacionPrecio { get; set; }
+        public int HabitacionPrecio { get; set; }
 
         [Display(Name = "Tipo de Habitación")]
         public int TipoHId { get; set; }

@@ -4,6 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
+
 <h1>Reserva de Habitaciones</h1>
 <br />
 
@@ -134,3 +135,58 @@ else
 
 <link rel="stylesheet" href="~/css/common.css" />
 <script src="~/js/reservahabitacions.js" asp-append-version="true"></script>
+=======
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-file"></i> Nueva Reserva</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservaNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservaApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Habitacion.HabitacionNumero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechasSalida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservaNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservaApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Habitacion.HabitacionNumero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dias)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>*@
+            <td>
+                <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@item.ReservaHId">Editar</a>
+                <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.ReservaHId">Detalles</a>
+                <a class="btn btn-dark" asp-controller="PagoReservas" asp-action="Create"> Pagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
