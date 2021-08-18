@@ -6,7 +6,7 @@
 
 <body id="Imag">
 
-    <h3>¿Estás seguro de borrar habitación?</h3>
+    <h3><b>¿Estás seguro de borrar habitación?</b></h3>
     <div class="container" style="background-color:white; border-radius:15px; ">
 
         <hr  />
@@ -48,10 +48,11 @@
                 @Html.DisplayFor(model => model.EstadoHabitacion.Estado)
             </dd>
         </dl>
-
+    </div>
+    <div>
         <form asp-action="Delete">
             <input type="hidden" asp-for="HabitacionId" />
-            <input type="submit" class="btn btn-outline-danger" value="Borrar" />
+            <input type="submit" class="btn btn-danger" value="Borrar" />
             <a asp-action="Index" class="btn btn-warning">Regresar</a>
         </form>
     </div>

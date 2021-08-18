@@ -6,20 +6,20 @@
 
 
 <body id="Imag">
-    <h1 style="margin-top:-65px;">Habitaciones</h1>
+    <h1 style="margin-top:-65px;"><b>Habitaciones</b></h1>
     
-<div class="row search">
+<div class="row search" style="margin-top:50px;">
     <div class="col-auto">
         <input type="text" class="form-control" id="txt-search" placeholder="Buscar..." />
     </div>
     <div class="col-auto">
         <a class="btn btn-success" onclick="habitacion_search()" id="search-link"><i class="fas fa-search"></i></a>
-        <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-file"></i> Nueva Habitación</a>
+        <a asp-action="Create" class="btn btn-success"><i class="far fa-file"></i> Nueva Habitación</a>
     </div>
 </div>
 <br />
 
- <table class="table table-light table-borderless" >
+ <table class="table table-light table-borderless" style="border-radius:25px;" >
         <thead class="table-dark">
             <tr>
                 <th>

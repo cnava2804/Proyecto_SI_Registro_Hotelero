@@ -4,28 +4,28 @@
     ViewData["Title"] = "Create";
 }
 
-
-<h4>Piso de la Habitación</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Piso" class="control-label"></label>
-                <input asp-for="Piso" class="form-control" />
-                <span asp-validation-for="Piso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-outline-success" />
-                <a asp-action="Index" class="btn btn-warning">Regresar</a>
-            </div>
-        </form>
+<body id="Imag5">
+    <h4><b>Piso de la Habitación</b></h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Piso" class="control-label"></label>
+                    <input asp-for="Piso" class="form-control" />
+                    <span asp-validation-for="Piso" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-outline-success" />
+                    <a asp-action="Index" class="btn btn-warning">Regresar</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+</body>
 
 
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

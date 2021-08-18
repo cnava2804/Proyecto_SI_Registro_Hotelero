@@ -3,22 +3,23 @@
 @{
     ViewData["Title"] = "Details";
 }
+<body id="Imag4">
+    <h1><b>Detalles</b></h1>
 
-<h1>Detalles</h1>
+    <div class="container" style="background-color:white; border-radius:15px; ">
 
-<div>
-    
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TipoDescripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TipoDescripcion)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@Model.TipoHId">Editar</a> 
-    <a asp-action="Index" class="btn btn-warning">Regresar</a>
-</div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TipoDescripcion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TipoDescripcion)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@Model.TipoHId">Editar</a>
+        <a asp-action="Index" class="btn btn-warning">Regresar</a>
+    </div>
+</body>
