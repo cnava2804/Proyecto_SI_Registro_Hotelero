@@ -49,8 +49,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
         public IActionResult Create()
         {
 
-
-            ViewData["ReservaHId"] = new SelectList(_context.ReservaHabitaciones, "ReservaHId", "ReservaHId");
+        ViewData["ReservaHId"] = new SelectList(_context.ReservaHabitaciones, "ReservaHId", "ReservaHId");
             return View();
         }
 
