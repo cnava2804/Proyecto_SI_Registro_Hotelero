@@ -3,31 +3,31 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<body id="Imag4">
+    <h1><b>Editar</b></h1>
 
-<h1>Editar</h1>
 
-
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TipoHId" />
-            <div class="form-group">
-                <label asp-for="TipoDescripcion" class="control-label"></label>
-                <input asp-for="TipoDescripcion" class="form-control" />
-                <span asp-validation-for="TipoDescripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-outline-success" />
-                <a asp-action="Index" class="btn btn-warning">Regresar</a>
-            </div>
-        </form>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="TipoHId" />
+                <div class="form-group">
+                    <label asp-for="TipoDescripcion" class="control-label"></label>
+                    <input asp-for="TipoDescripcion" class="form-control" />
+                    <span asp-validation-for="TipoDescripcion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-outline-success" />
+                    <a asp-action="Index" class="btn btn-warning">Regresar</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+</body>
 
 
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

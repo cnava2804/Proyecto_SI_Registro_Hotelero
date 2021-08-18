@@ -4,32 +4,35 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Pisos de Habitaciones</h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-file"></i> Nuevo Piso</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Piso)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Piso)
-            </td>
-            <td>
-                <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@item.PisoHId">Editar</a>
-                <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.PisoHId">Detalles</a>
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.PisoHId">Borrar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<body id="Imag5">
+    <h1 style="margin-top:-65px;"><b>Pisos de Habitaciones</b></h1>
+    <br />
+    <p style="margin-top:50px;">
+        <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-file"></i> Nuevo Piso</a>
+    </p>
+    <table class="table table-light table-borderless" style="border-radius:25px;">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Piso)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Piso)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@item.PisoHId">Editar</a>
+                        <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.PisoHId">Detalles</a>
+                        <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.PisoHId">Borrar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

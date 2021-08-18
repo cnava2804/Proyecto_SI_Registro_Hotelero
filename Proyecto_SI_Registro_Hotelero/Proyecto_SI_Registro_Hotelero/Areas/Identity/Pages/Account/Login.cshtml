@@ -11,21 +11,21 @@
     <div class="col-md-10 offset-md-1">
         <section>
             <div class="login-form-icon">
-                <i class="fas fa-user-circle fa-9x text-black"></i>
+                <i class="fas fa-user-circle fa-9x text-white"></i>
             </div>
             <form id="account" method="post">
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group text-black">
+                <div asp-validation-summary="All" class="text-white"></div>
+                <div class="form-group text-white">
                     <label asp-for="Input.Email"></label>
                     <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <span asp-validation-for="Input.Email" class="text-white"></span>
                 </div>
-                <div class="form-group text-black">
+                <div class="form-group text-white">
                     <label asp-for="Input.Password"></label>
                     <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    <span asp-validation-for="Input.Password" class="text-white"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group text-white">
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe"  >
                             <input asp-for="Input.RememberMe" />
