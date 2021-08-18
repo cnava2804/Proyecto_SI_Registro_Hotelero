@@ -10,8 +10,8 @@ using Proyecto_SI_Registro_Hotelero.Data;
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
     [DbContext(typeof(PRHoteleroDbContext))]
-    [Migration("20210817121543_Actualizado")]
-    partial class Actualizado
+    [Migration("20210818020246_Creation Initial")]
+    partial class CreationInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

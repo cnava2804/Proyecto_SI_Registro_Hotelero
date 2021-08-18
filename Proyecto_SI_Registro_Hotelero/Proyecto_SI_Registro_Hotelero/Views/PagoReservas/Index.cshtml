@@ -16,19 +16,21 @@
                 <th>
                     @Html.DisplayNameFor(model => model.PReservaCedula)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.PReservaNumeroTarjeta)
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.PReservaFechaVencimiento)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.PReservaCodigoTarjeta)
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.ReservaHabitacion)
                 </th>
-                <th></th>
+                <th>
+
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -41,22 +43,22 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.PReservaCedula)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.PReservaNumeroTarjeta)
-                    </td>
+                    </td>*@
                     <td>
                         @*@Html.DisplayFor(modelItem => item.PReservaFechaVencimiento, "{MM/yyyy}")*@
                         @Html.ValueFor(modelItem => item.PReservaFechaVencimiento, "{0:MM/yyyy}")
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.PReservaCodigoTarjeta)
-                    </td>
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.ReservaHabitacion.ReservaHId)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => ((item.ReservaHabitacion.FechasSalida - item.ReservaHabitacion.FechaIngreso).Days))
-                    </td>
+                    </td>*@
                     <td>
                         <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.PReservaId">Detalles</a>
                     </td>
