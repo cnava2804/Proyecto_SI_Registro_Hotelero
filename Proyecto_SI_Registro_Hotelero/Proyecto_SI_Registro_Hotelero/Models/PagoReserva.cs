@@ -31,7 +31,7 @@ namespace Proyecto_SI_Registro_Hotelero.Models
         public DateTime PReservaFechaVencimiento { get; set; }
 
         [Display(Name = "Código Tarjeta")]
-        [CreditCard(ErrorMessage ="Tarjeta Invalida")]
+  
         public string PReservaCodigoTarjeta { get; set; }
 
         //public int Total

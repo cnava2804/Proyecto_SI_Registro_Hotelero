@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Proyecto_SI_Registro_Hotelero.Cammon;
 using Proyecto_SI_Registro_Hotelero.Data;
 using Proyecto_SI_Registro_Hotelero.Models;
 
@@ -13,6 +14,10 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
     public class PagoReservasController : Controller
     {
         private readonly PRHoteleroDbContext _context;
+        private readonly int RecordsPerPage = 10;
+
+        private Pagination<PagoReserva> PaginationPagoReserva;
+
 
         public PagoReservasController(PRHoteleroDbContext context)
         {
@@ -20,10 +25,43 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
         }
 
         // GET: PagoReservas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search, int page = 1)
         {
-            var applicationDbContext = _context.PagoReservas.Include(p => p.ReservaHabitacion);
-            return View(await applicationDbContext.ToListAsync());
+            int totalRecords = 0;
+
+            if (search == null)
+            {
+                search = "";
+                
+            }
+
+            totalRecords = await _context.PagoReservas.Include(a => a.ReservaHabitacion).CountAsync(
+                    d => d.PReservaCedula.Contains(search));
+
+            //Obtener la pagina de registros(datos)
+            var habi = await _context.PagoReservas.Include(a => a.ReservaHabitacion)
+                .Where(d => d.PReservaCedula.Contains(search)).ToListAsync();
+
+            var pagoreservaResult = habi.OrderBy(o => o.PReservaCedula)
+                .Skip((page - 1) * RecordsPerPage)
+                .Take(RecordsPerPage);
+
+            //Obtener el total de paginas
+            var totalPage = (int)Math.Ceiling((double)totalRecords / RecordsPerPage);
+
+            //Instanciar la clase de paginacion
+            PaginationPagoReserva = new Pagination<PagoReserva>()
+            {
+                RecordsPerPage = this.RecordsPerPage,
+                TotalRecords = totalRecords,
+                TotalPage = totalPage,
+                CurrentPage = page,
+                Search = search,
+                Result = pagoreservaResult
+            };
+            return View(PaginationPagoReserva);
+
+
         }
 
         // GET: PagoReservas/Details/5
