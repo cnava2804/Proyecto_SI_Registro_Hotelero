@@ -10,8 +10,8 @@ using Proyecto_SI_Registro_Hotelero.Data;
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
     [DbContext(typeof(PRHoteleroDbContext))]
-    [Migration("20210818080126_Create")]
-    partial class Create
+    [Migration("20210818194417_Initial Dia Proyecto")]
+    partial class InitialDiaProyecto
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

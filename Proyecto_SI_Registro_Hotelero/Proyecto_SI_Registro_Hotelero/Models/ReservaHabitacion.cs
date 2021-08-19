@@ -18,10 +18,10 @@ namespace Proyecto_SI_Registro_Hotelero.Models
         [Display(Name = "Apellido del Huésped")]
         public string ReservaApellido { get; set; }
 
-        [Display(Name = "Total a Pagar")]
+        [Display(Name = "Fecha de Ingreso")]
         public DateTime FechaIngreso { get; set; }
 
-        [Display(Name = "Estadia en el Hotel")]
+        [Display(Name = "Fecha de Salida")]
         public DateTime FechasSalida { get; set; }
 
         public int Dias

@@ -14,7 +14,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
     public class HabitacionsController : Controller
     {
         private readonly PRHoteleroDbContext _context;
-        private readonly int RecordsPerPage = 10;
+        private readonly int RecordsPerPage = 5;
       
         private Pagination<Habitacion> PaginationHabitacion;
 

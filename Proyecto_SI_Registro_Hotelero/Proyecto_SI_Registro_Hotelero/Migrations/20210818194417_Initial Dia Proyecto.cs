@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto_SI_Registro_Hotelero.Migrations
 {
-    public partial class Create : Migration
+    public partial class InitialDiaProyecto : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

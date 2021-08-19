@@ -6,8 +6,7 @@
 
 
 
-<h3>Pago de Reserva de Habitación</h3>
-<hr />
+
 @*<div class="row">
         <div class="col-md-4">
             <form asp-action="Create">
@@ -83,7 +82,9 @@
 
     <link rel="stylesheet" href="Style.css">
 </head>
-<body>
+<body id="Imag">
+    <h1><b>Pago Reserva Habitación</b></h1>
+    <hr style="background-color:black" />
     <!--<-->@*div class="row">
         <div class="col-md-4">
             <form asp-action="Create">
@@ -93,9 +94,9 @@
             <div class="container-fluid">
                 <form asp-action="Create" id="validate">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-50">
-                            <h3>Billing Address</h3>
+                            <h3 style="margin-top: 20px;"><b style="font-size:60px;" >Datos Personales</b></h3>
                             @*<label for="fname"><i class="fa fa-user"></i> Full Name</label>
                                 <input type="text" id="fname" name="fullname" placeholder="Soeng.Souy" required>
                                 <label for="email"><i class="fa fa-envelope"></i> Email</label>
@@ -105,7 +106,7 @@
                                 <label for="city"><i class="fa fa-institution"></i> City</label>
                                 <input type="text" id="city" name="city" placeholder="Phnom Penh" required>*@
 
-                            <div class="form-group">
+                            <div class="form-group" style="margin-top:53px;">
                                 <label asp-for="PReservaFullName" class="control-label"></label>
                                 <input asp-for="PReservaFullName" class="form-control" />
                                 <span asp-validation-for="PReservaFullName" class="text-danger"></span>
@@ -121,10 +122,7 @@
                                 <span asp-validation-for="PReservaCedula" class="text-danger"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label asp-for="ReservaHabitacion.Habitacion.HabitacionDescripcion" class="control-label"></label>
-                                <select asp-for="ReservaHId" class="form-control" asp-items="ViewBag.ReservaHId"></select>
-                            </div>
+                            
                             <div class="form-group">
                                 <label asp-for="ReservaHId" class="control-label"></label>
                                 <select asp-for="ReservaHId" class="form-control" asp-items="ViewBag.ReservaHId"></select>
@@ -178,11 +176,7 @@
                             <div class="form-group">
                                 <label asp-for="PReservaNumeroTarjeta" class="control-label"></label>
                                 <input asp-for="PReservaNumeroTarjeta" class="form-control regxa" />
-                                <input class='regxa' />
-
-
-                                <input class='regxa' />
-                                <span asp-validation-for="PReservaNumeroTarjeta" class="text-danger"></span>
+                                
                             </div>
                             <div class="form-group">
                                 <label asp-for="PReservaFechaVencimiento" for="month" class="control-label"></label>
@@ -198,8 +192,8 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Pagar" class="btn btn-outline-success" />
-                        <a asp-action="Index" class="btn btn-warning">Regresar</a>
+                        <input type="submit" value="Pagar" class="btn btn-success" />
+                        <a asp-controller="ReservaHabitacions" asp-action="Index" class="btn btn-warning">Regresar</a>
                     </div>
 
                     @*<input type="submit" value="Continue to checkout" class="btn-dark">*@

@@ -18,10 +18,12 @@
                 @Html.DisplayFor(model => model.TipoDescripcion)
             </dd>
         </dl>
+        </div>
 
+        <div>
         <form asp-action="Delete">
             <input type="hidden" asp-for="TipoHId" />
-            <input type="submit" class="btn btn-outline-danger" value="Borrar" />
+            <input type="submit" class="btn btn-danger" value="Borrar" />
             <a asp-action="Index" class="btn btn-warning">Regresar</a>
         </form>
     </div>
