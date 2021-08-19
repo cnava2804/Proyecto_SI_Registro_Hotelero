@@ -18,7 +18,7 @@ namespace Proyecto_SI_Registro_Hotelero.Models
         [Display(Name = "Email")]
         public string PReservaCorreo { get; set; }
 
-        [Display(Name = "Nombre de la Targeta")]
+        [Display(Name = "Nombre de la Tarjeta")]
         public string PReservaTitular { get; set; }
 
         [Display(Name = "Número de Cédula")]
@@ -42,7 +42,7 @@ namespace Proyecto_SI_Registro_Hotelero.Models
         //    }
         //}
 
-
+        [Display(Name = "Nombre del Huésped")]
         public int ReservaHId { get; set; }
         [ForeignKey("ReservaHId")]
         public ReservaHabitacion ReservaHabitacion { get; set; }

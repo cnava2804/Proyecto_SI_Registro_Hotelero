@@ -87,7 +87,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
         public IActionResult Create()
         {
 
-        ViewData["ReservaHId"] = new SelectList(_context.ReservaHabitaciones, "ReservaHId", "ReservaHId");
+        ViewData["ReservaHId"] = new SelectList(_context.ReservaHabitaciones, "ReservaHId", "ReservaNombre");
             return View();
         }
 
@@ -104,7 +104,7 @@ namespace Proyecto_SI_Registro_Hotelero.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ReservaHId"] = new SelectList(_context.ReservaHabitaciones, "ReservaHId", "ReservaHId", pagoReserva.ReservaHId);
+            ViewData["ReservaHId"] = new SelectList(_context.ReservaHabitaciones, "ReservaHId", "ReservaNombre", pagoReserva.ReservaHId);
             return View();
         }
 
